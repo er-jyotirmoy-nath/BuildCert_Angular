@@ -256,8 +256,8 @@ $(document).ready(function() {
 						if(isset($Cold_isol_46_lp)){$Cold_isol_46_lp = "AND Cold_isol_46_lp='1'";}else{$Cold_isol_46_lp="";}
 						try{
 						
-						$query = "SELECT * FROM wrc.BUILDCERT_APPROVALS WHERE Remove_from_Website != '1' $HP_1111 $HPB $HPS $HPW $HPT $Cold_isol_46_hp $LP_1287 $LPB $LPS $LPW $LPT $LPTx $Cold_isol_46_lp AND Discontinued_Withdrawn !='$discon' and type_app = 'tmv2' ORDER BY Licensee ASC ";
-//						$stmt_ch = $dbh->query("DELETE FROM WRC.BUILDCERT_APPROVALS WHERE type_app = 'tmv2' ");
+						$query = "SELECT * FROM BUILDCERT_APPROVALS WHERE Remove_from_Website != '1' $HP_1111 $HPB $HPS $HPW $HPT $Cold_isol_46_hp $LP_1287 $LPB $LPS $LPW $LPT $LPTx $Cold_isol_46_lp AND Discontinued_Withdrawn !='$discon' and type_app = 'tmv2' ORDER BY Licensee ASC ";
+//						$stmt_ch = $dbh->query("DELETE FROM BUILDCERT_APPROVALS WHERE type_app = 'tmv2' ");
 //						
 //						
 //							$query = "SELECT * FROM TMV2 WHERE Remove_from_Website != '1' $HP_1111 $HPB $HPS $HPW $HPT $Cold_isol_46_hp $LP_1287 $LPB $LPS $LPW $LPT $LPTx $Cold_isol_46_lp AND Discontinued_Withdrawn !='$discon' ORDER BY Licensee ASC ";

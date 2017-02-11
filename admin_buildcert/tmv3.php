@@ -258,7 +258,7 @@ $(document).ready(function() {
 							if(isset($LPD46)){$LPD46 = "AND LPD46='1'";}else{$LPD46="";}
 							
 						
-						$query = "SELECT * FROM wrc.BUILDCERT_APPROVALS WHERE Remove_from_Website != '1' $HPB $HPS $HPW $HPT44 $HPT46 $HPD44 $HPD46 $LPB $LPS $LPW $LPT44 $LPT46 $LPD44 $LPD46 AND Discontinued_Withdrawn !='$discon' and type_app = 'tmv3' ORDER BY Factor ASC ";
+						$query = "SELECT * FROM BUILDCERT_APPROVALS WHERE Remove_from_Website != '1' $HPB $HPS $HPW $HPT44 $HPT46 $HPD44 $HPD46 $LPB $LPS $LPW $LPT44 $LPT46 $LPD44 $LPD46 AND Discontinued_Withdrawn !='$discon' and type_app = 'tmv3' ORDER BY Factor ASC ";
 						
 						//$query = "SELECT * FROM wrc.TMV3";
 							$result = $dbh->query($query);

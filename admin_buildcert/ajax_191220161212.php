@@ -12,7 +12,7 @@ if (isset($_POST["filter"][0]) && isset($_POST["filter"][1]) && isset($_POST["fi
 
     if ($_POST["filter"][0] == 'tmv2') {
         $sql_tmv2 = "SELECT BUILD_APP_ID,APPROVED_MIXING_VALVE,UNIQUE_ID,LICENSEE,CERTIFICATE_LETTERS,CERTIFICATE_NUMBER,CERTIFICATE_DATE,COMMENTS,CERT_ID
-                    FROM wrc.BUILDCERT_APPROVALS where type_app = 'tmv2'
+                    FROM BUILDCERT_APPROVALS where type_app = 'tmv2'
 		";
         $query_tmv2 = $dbh->prepare($sql_tmv2);
         $query_tmv2->execute();
@@ -49,7 +49,7 @@ if (isset($_POST["filter"][0]) && isset($_POST["filter"][1]) && isset($_POST["fi
         echo $str;
     }
     if ($_POST["filter"][0] == 'tmv3') {
-        $sql_tmv2 = "SELECT APPROVED_MIXING_VALVE,UNIQUE_ID,FACTOR,CERTIFICATE_LETTERS,CERTIFICATE_NUMBER,CERTIFICATE_DATE,COMMENTS,BUILD_APP_ID FROM wrc.BUILDCERT_APPROVALS where type_app = 'tmv3' ORDER BY CERTIFICATE_NUMBER DESC";
+        $sql_tmv2 = "SELECT APPROVED_MIXING_VALVE,UNIQUE_ID,FACTOR,CERTIFICATE_LETTERS,CERTIFICATE_NUMBER,CERTIFICATE_DATE,COMMENTS,BUILD_APP_ID FROM BUILDCERT_APPROVALS where type_app = 'tmv3' ORDER BY CERTIFICATE_NUMBER DESC";
         $query_tmv2 = $dbh->prepare($sql_tmv2);
         $query_tmv2->execute();
        
@@ -88,7 +88,7 @@ if (isset($_POST["filter"][0]) && isset($_POST["filter"][1]) && isset($_POST["fi
         echo $str;
     }
     if ($_POST["filter"][0] == 'cias') {
-        $sql_tmv2 = "SELECT * FROM wrc.BUILDCERT_APPROVALS where type_app = 'cias' ORDER BY CERTIFICATE_NUMBER DESC
+        $sql_tmv2 = "SELECT * FROM BUILDCERT_APPROVALS where type_app = 'cias' ORDER BY CERTIFICATE_NUMBER DESC
 		";
         $query_tmv2 = $dbh->prepare($sql_tmv2);
         $query_tmv2->execute();
@@ -123,7 +123,7 @@ if (isset($_POST["filter"][0]) && isset($_POST["filter"][1]) && isset($_POST["fi
         echo $str;
     }
     if ($_POST["filter"][0] == 'buildcert') {
-        $sql_tmv2 = "SELECT * FROM wrc.BUILDCERT_APPROVALS where type_app = 'pdcert'
+        $sql_tmv2 = "SELECT * FROM BUILDCERT_APPROVALS where type_app = 'pdcert'
 		";
         $query_tmv2 = $dbh->prepare($sql_tmv2);
         $query_tmv2->execute();
@@ -160,7 +160,7 @@ if (isset($_POST["filter"][0]) && isset($_POST["filter"][1]) && isset($_POST["fi
         echo $str;
     }
     if ($_POST["filter"][0] == 'dtc') {
-        $sql_tmv2 = "SELECT MANUFACTURER,APPROVED_MIXING_VALVE,DESCRIPTION_PRODCERT,UNIQUE_ID,CERT_ID,EXPIRY_DATE,BUILD_APP_ID FROM wrc.BUILDCERT_APPROVALS where type_app = 'dtc'
+        $sql_tmv2 = "SELECT MANUFACTURER,APPROVED_MIXING_VALVE,DESCRIPTION_PRODCERT,UNIQUE_ID,CERT_ID,EXPIRY_DATE,BUILD_APP_ID FROM BUILDCERT_APPROVALS where type_app = 'dtc'
 		";
         $query_tmv2 = $dbh->prepare($sql_tmv2);
         $query_tmv2->execute();
@@ -344,7 +344,7 @@ if (isset($_POST["updbuild"][0]) && isset($_POST["updbuild"][1]) && isset($_POST
                 echo $manufacturer . "|" . $licensee . "|" . $aproovedvalve . "|" . $uniqueid . "|" . $certnum;
                 exit();
             }
-            $sql_up_tmv2 = "update wrc.BUILDCERT_APPROVALS set
+            $sql_up_tmv2 = "update BUILDCERT_APPROVALS set
 					 MANUFACTURER = :manufacturer,LICENSEE = :licensee,APPROVED_MIXING_VALVE = :aproovedvalve,UNIQUE_ID = :uniqueid,
                                         HP_1111 = :hp1111,HPB = :hpb,HPB_COMMENT = :hpb_c,HPS = :hps,		
 					HPS_COMMENT = :hps_c,HPW = :hpw,HPW_COMMENT = :hpw_c,HPT = :hpt,
@@ -465,7 +465,7 @@ if (isset($_POST["updbuild"][0]) && isset($_POST["updbuild"][1]) && isset($_POST
             $expiry_date                = $_POST["updbuild"][47];
             $build_app_id               = $_POST["updbuild"][48];
             $updated = date("H:i:s d-m-Y", strtotime("now"));
-            $sql_up_tmv3 = "update wrc.BUILDCERT_APPROVALS set
+            $sql_up_tmv3 = "update BUILDCERT_APPROVALS set
                             FACTOR =:factor,MANUFACTURER =:manufacturer,APPROVED_MIXING_VALVE =:approved_mixing_valve,UNIQUE_ID =:unique_id,
 	 			HPB =:hpb,	HPB_COMMENT =:hpb_comment,	HPS =:hps,	HPS_COMMENT =:hps_comment,
 	 			HPW =:hpw,	HPW_COMMENT =:hpw_comment,	HPT44 =:hpt44,	HPT44_COMMENT =:hpt44_comment,
@@ -553,7 +553,7 @@ if (isset($_POST["updbuild"][0]) && isset($_POST["updbuild"][1]) && isset($_POST
                 echo '<i class="fa fa-times-circle" aria-hidden="true"></i> Values not properly entered';
                 exit();
             }
-            $sql = "update wrc.BUILDCERT_APPROVALS set
+            $sql = "update BUILDCERT_APPROVALS set
 							MANUFACTURER = :manufacturer,
 							UPDATED = :updated,
 							SIZES_CIAS = :sizecias,
@@ -592,7 +592,7 @@ if (isset($_POST["updbuild"][0]) && isset($_POST["updbuild"][1]) && isset($_POST
                 echo '<i class="fa fa-times-circle" aria-hidden="true"></i> Values not properly entered';
                 exit();
             }
-            $sql = "update wrc.BUILDCERT_APPROVALS set
+            $sql = "update BUILDCERT_APPROVALS set
 							MANUFACTURER = :manufacturer,
                                                         APPROVED_MIXING_VALVE = :approved_mixing_valve,
                                                         DESCRIPTION_PRODCERT = :description_prodcert,
@@ -635,7 +635,7 @@ if (isset($_POST["updbuild"][0]) && isset($_POST["updbuild"][1]) && isset($_POST
                 echo '<i class="fa fa-times-circle" aria-hidden="true"></i> Values not properly entered';
                 exit();
             }
-            $sql = "update wrc.BUILDCERT_APPROVALS set
+            $sql = "update BUILDCERT_APPROVALS set
 							MANUFACTURER = :manufacturer,
 							UPDATED = :updated,
 							PERFORMANCE_STANDARD = :prodspecification,
@@ -671,7 +671,7 @@ if (isset($_POST["updbuild"][0]) && isset($_POST["updbuild"][1]) && isset($_POST
 if (isset($_POST["insbuildcert"][0]) && isset($_POST["insbuildcert"][1]) && isset($_POST["insbuildcert"][2]) && isset($_POST["insbuildcert"][3])) {
 
     try {
-        $stmt_fetch = $dbh->query("select max(row_count) from wrc.buildcert_approvals");
+        $stmt_fetch = $dbh->query("select max(row_count) from BUILDCERT_APPROVALS");
         $rowcount = $stmt_fetch->fetchColumn();
         if ($_POST["insbuildcert"][3] == "cias") {
             $licensee = 'no value';
@@ -1043,7 +1043,7 @@ if (isset($_POST["insbuildcert"][0]) && isset($_POST["insbuildcert"][1]) && isse
             echo '<i class="fa fa-times-circle" aria-hidden="true"></i> Values not properly entered';
             exit();
         }
-        $sql_in_tmv2 = "insert into wrc.BUILDCERT_APPROVALS
+        $sql_in_tmv2 = "insert into BUILDCERT_APPROVALS
 					(BUILD_APP_ID,MANUFACTURER,LICENSEE,APPROVED_MIXING_VALVE,UNIQUE_ID,CERTIFICATE_LETTERS,CERT_ID,CERTIFICATE_NUMBER,CERTIFICATE_DATE,HP_1111,HPBSW,HPBSW_COMMENT,HPB,HPB_COMMENT,  
                     HPS,HPS_COMMENT,HPW,HPW_COMMENT,HPT,HPT_COMMENT,LP_1287,LPB,LPB_COMMENT,LPS,LPS_COMMENT,LPW,LPW_COMMENT,LPT,LPT_COMMENT,LPTX,LPTX_COMMENT,COMMENTS,EXTENDED_COMMENTS,PTS_COMMENTS,
                     PRIMARY_OR_SECONDARY,FIRST_AUDIT,FIRST_COMPLETED,SECOND_AUDIT,SECOND_COMPLETED,DISCONTINUED_WITHDRAWN,REMOVE_FROM_WEBSITE,NEW,COLD_ISOL_46_LP,COLD_ISOL_46_HP,EXPIRY_DATE,UPDATED,
@@ -1154,7 +1154,7 @@ if (isset($_POST["tmv2data"][0]) && isset($_POST["tmv2data"][1]) && isset($_POST
 
     $certnum = $_POST["tmv2data"][0];
 
-    $sql_get_tmv2 = "SELECT * FROM wrc.BUILDCERT_APPROVALS WHERE BUILD_APP_ID = :certnum AND TYPE_APP = 'tmv2'";
+    $sql_get_tmv2 = "SELECT * FROM BUILDCERT_APPROVALS WHERE BUILD_APP_ID = :certnum AND TYPE_APP = 'tmv2'";
     //$sql_get_tmv2 = "select * from tmv2 where CERTIFICATE_NUMBER = :certnum and CERT_ID = :certid and CERTIFICATE_DATE = :certdate and TYPE_APP = :scheme";
     //echo $sql_get_tmv22;
     //$sql_get_tmv22 = "select * from tmv2 where CERTIFICATE_NUMBER = :certnum and CERT_ID = :certid and CERTIFICATE_DATE = :certdate ";
@@ -1453,7 +1453,7 @@ if (isset($_POST["dtc_data"][0]) && isset($_POST["dtc_data"][1]) && isset($_POST
 
     $cias_num = $_POST["dtc_data"][2];
     $str_get_tmv3 = '';
-    $stmt_cis = $dbh->query("SELECT BUILD_APP_ID,MANUFACTURER,APPROVED_MIXING_VALVE,DESCRIPTION_PRODCERT,UNIQUE_ID,CERT_ID,CERTIFICATE_NUMBER,EXPIRY_DATE FROM wrc.BUILDCERT_APPROVALS WHERE BUILD_APP_ID = '$cias_num' and TYPE_APP = 'dtc'");
+    $stmt_cis = $dbh->query("SELECT BUILD_APP_ID,MANUFACTURER,APPROVED_MIXING_VALVE,DESCRIPTION_PRODCERT,UNIQUE_ID,CERT_ID,CERTIFICATE_NUMBER,EXPIRY_DATE FROM BUILDCERT_APPROVALS WHERE BUILD_APP_ID = '$cias_num' and TYPE_APP = 'dtc'");
     if ($_POST["dtc_data"][1] == 'set') {
         while ($rows = $stmt_cis->fetch(PDO::FETCH_ASSOC)) {
             $cert_id = explode('/',$rows["CERT_ID"]);
@@ -1499,7 +1499,7 @@ if (isset($_POST["cias_data"][0]) && isset($_POST["cias_data"][1]) && isset($_PO
     $cias_num = $_POST["cias_data"][2];
     //echo $cias_num;
     $str_get_cias = '';
-    $cias_sql = $dbh->query("select BUILD_APP_ID,MANUFACTURER,DESCRIPTION_PRODCERT,SIZES_CIAS,CERTIFICATE_NUMBER,CERT_ID,CERTIFICATE_DATE from wrc.BUILDCERT_APPROVALS where BUILD_APP_ID = '$cias_num' and type_app = 'cias'");
+    $cias_sql = $dbh->query("select BUILD_APP_ID,MANUFACTURER,DESCRIPTION_PRODCERT,SIZES_CIAS,CERTIFICATE_NUMBER,CERT_ID,CERTIFICATE_DATE from BUILDCERT_APPROVALS where BUILD_APP_ID = '$cias_num' and type_app = 'cias'");
     if ($_POST["cias_data"][1] == 'set') {
         while ($row_cias = $cias_sql->fetch(PDO::FETCH_ASSOC)) {
             $CERT_ID = explode('/', $row_cias["CERT_ID"]);
@@ -1557,7 +1557,7 @@ if (isset($_POST["pdcert_data"][0]) && isset($_POST["pdcert_data"][1]) && isset(
 
     $pdcert_num = $_POST["pdcert_data"][2];
     $pdcert_sql = $dbh->query("select MANUFACTURER,PERFORMANCE_STANDARD,DESCRIPTION_PRODCERT,CERTIFICATE_NUMBER,CERT_ID,EXPIRY_DATE,BUILD_APP_ID"
-            . " from wrc.BUILDCERT_APPROVALS where BUILD_APP_ID = '$pdcert_num' and TYPE_APP = 'pdcert'");
+            . " from BUILDCERT_APPROVALS where BUILD_APP_ID = '$pdcert_num' and TYPE_APP = 'pdcert'");
     //ECHO $pdcert_num;
     $str_get_pdcert = '';
     if($_POST["pdcert_data"][1] == 'set'){
@@ -1616,7 +1616,7 @@ if (isset($_POST["tmv3data"][0]) && isset($_POST["tmv3data"][1]) && isset($_POST
     $certnum = $_POST["tmv3data"][0];
     //$scheme = $_POST["tmv2data"][3];
 
-    $sql_get_tmv2 = "select * from wrc.BUILDCERT_APPROVALS where BUILD_APP_ID = :certnum AND TYPE_APP = 'tmv3' ";
+    $sql_get_tmv2 = "select * from BUILDCERT_APPROVALS where BUILD_APP_ID = :certnum AND TYPE_APP = 'tmv3' ";
     $quer_get_tmv2 = $dbh->prepare($sql_get_tmv2);
     $quer_get_tmv2->bindParam(":certnum", $certnum);
     $quer_get_tmv2->execute();
@@ -1845,7 +1845,7 @@ if (isset($_POST["build_data"][0]) && isset($_POST["build_data"][1]) && isset($_
     $certnum = $_POST["build_data"][0];
     //$scheme = $_POST["tmv2data"][3];
     $str_get_tmv3 = '';
-    $sql_get_tmv2 = "select BUILD_APP_ID,PERFORMANCE_STANDARD,DESCRIPTION_PRODCERT,CERTIFICATE_NUMBER,CERT_ID,EXPIRY_DATE from wrc.BUILDCERT_APPROVALS where BUILD_APP_ID = :certnum AND TYPE_APP = 'pdcert' ";
+    $sql_get_tmv2 = "select BUILD_APP_ID,PERFORMANCE_STANDARD,DESCRIPTION_PRODCERT,CERTIFICATE_NUMBER,CERT_ID,EXPIRY_DATE from BUILDCERT_APPROVALS where BUILD_APP_ID = :certnum AND TYPE_APP = 'pdcert' ";
     $quer_get_tmv2 = $dbh->prepare($sql_get_tmv2);
     $quer_get_tmv2->bindParam(":certnum", $certnum);
     $quer_get_tmv2->execute();

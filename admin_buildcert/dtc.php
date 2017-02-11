@@ -146,7 +146,7 @@ $(document).ready(function() {
                             </thead><tbody>
                             <?php
                               
-                              $stmt_cis = $dbh->query("SELECT BUILD_APP_ID,MANUFACTURER,APPROVED_MIXING_VALVE,DESCRIPTION_PRODCERT,UNIQUE_ID,CERT_ID,CERTIFICATE_NUMBER,EXPIRY_DATE FROM wrc.BUILDCERT_APPROVALS WHERE TYPE_APP = 'dtc'");
+                              $stmt_cis = $dbh->query("SELECT BUILD_APP_ID,MANUFACTURER,APPROVED_MIXING_VALVE,DESCRIPTION_PRODCERT,UNIQUE_ID,CERT_ID,CERTIFICATE_NUMBER,EXPIRY_DATE FROM BUILDCERT_APPROVALS WHERE TYPE_APP = 'dtc'");
                                 while ($res = $stmt_cis->fetch(PDO::FETCH_ASSOC)) {
                                   # code...
                                   echo '<tr>';

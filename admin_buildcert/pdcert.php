@@ -140,7 +140,7 @@ $(document).ready(function() {
                             </thead><tbody>
                             <?php
                               
-                              $stmt_cis = $dbh->query("SELECT MANUFACTURER,DESCRIPTION_PRODCERT,EXPIRY_DATE,PERFORMANCE_STANDARD,CERT_ID,BUILD_APP_ID FROM wrc.BUILDCERT_APPROVALS WHERE TYPE_APP = 'pdcert' ");
+                              $stmt_cis = $dbh->query("SELECT MANUFACTURER,DESCRIPTION_PRODCERT,EXPIRY_DATE,PERFORMANCE_STANDARD,CERT_ID,BUILD_APP_ID FROM BUILDCERT_APPROVALS WHERE TYPE_APP = 'pdcert' ");
                                 while ($res = $stmt_cis->fetch(PDO::FETCH_ASSOC)) {
                                   # code...
                                   echo '<tr>';

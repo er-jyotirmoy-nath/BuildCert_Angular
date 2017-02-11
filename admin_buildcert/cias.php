@@ -153,7 +153,7 @@ $(document).ready(function() {
                             </thead><tbody>
                             <?php
                               
-                              $stmt_cis = $dbh->query("SELECT BUILD_APP_ID,MANUFACTURER,DESCRIPTION_PRODCERT,SIZES_CIAS,CERTIFICATE_NUMBER,BUILD_APP_ID FROM wrc.BUILDCERT_APPROVALS WHERE TYPE_APP = 'cias'");
+                              $stmt_cis = $dbh->query("SELECT BUILD_APP_ID,MANUFACTURER,DESCRIPTION_PRODCERT,SIZES_CIAS,CERTIFICATE_NUMBER,BUILD_APP_ID FROM BUILDCERT_APPROVALS WHERE TYPE_APP = 'cias'");
                                 while ($res = $stmt_cis->fetch(PDO::FETCH_ASSOC)) {
                                   # code...
                                   echo '<tr>';
